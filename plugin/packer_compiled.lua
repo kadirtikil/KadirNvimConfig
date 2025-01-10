@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/kadir/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["autoclose.nvim"] = {
+    loaded = true,
+    path = "/home/kadir/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
+    url = "https://github.com/m4xshen/autoclose.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/kadir/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -103,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kadir/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/home/kadir/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -143,6 +153,7 @@ _G.packer_plugins = {
 
 time([[Defining packer_plugins]], false)
 
+_G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
   vim.cmd("doautocmd BufRead")
 end

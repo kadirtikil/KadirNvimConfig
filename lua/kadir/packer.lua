@@ -38,4 +38,6 @@ return require('packer').startup(function(use)
       run = ':TSUpdate'
   }
 
+  use 'm4xshen/autoclose.nvim'
+
 end)

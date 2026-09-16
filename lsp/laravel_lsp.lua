@@ -11,7 +11,13 @@ local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
 return {
   cmd = { "laravel-lsp" },
   filetypes = { "php", "blade" },
-  root_markers = { "artisan", "composer.json", ".git" },
+  -- the server errors out with "Initialize request must include a workspace root URI"
+  -- when it is started outside of a project, so only start it once a Laravel/PHP
+  -- project root is actually found (`root_markers` alone would still start it).
+  root_dir = function(bufnr, on_dir)
+    local root = vim.fs.root(bufnr, { "artisan", "composer.json" })
+    if root then on_dir(root) end
+  end,
   -- reuse AstroNvim's completion capabilities and its `on_attach` so the
   -- standard LSP mappings (gd, gr, <Leader>la, ...) work here too
   capabilities = astrolsp_avail and astrolsp.config.capabilities or nil,
